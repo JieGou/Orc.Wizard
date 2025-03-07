@@ -158,6 +158,7 @@ public abstract class WizardBase : ModelBase, IWizard
         }
     }
 
+    public bool IsPageHeaderVisible { get; protected set; }
     public bool IsHelpVisible { get; protected set; }
 
     public bool CanShowHelp { get; protected set; }

@@ -25,6 +25,7 @@ public interface IWizard
     bool CanMoveForward { get; }
     bool CanMoveBack { get; }
     bool IsHelpVisible { get; }
+    bool IsPageHeaderVisible { get; }
     bool CanShowHelp { get; }
     bool ShowInTaskbar { get; }
     bool AllowQuickNavigation { get; }

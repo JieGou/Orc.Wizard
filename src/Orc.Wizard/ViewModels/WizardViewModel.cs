@@ -39,6 +39,7 @@ public class WizardViewModel : ViewModelBase
     [Expose(nameof(IWizard.MinSize))]
     [Expose(nameof(IWizard.MaxSize))]
     [Expose(nameof(IWizard.IsHelpVisible))]
+    [Expose(nameof(IWizard.IsPageHeaderVisible))]
     [Expose(nameof(IWizard.ShowInTaskbar))]
     public IWizard Wizard { get; set; }
 

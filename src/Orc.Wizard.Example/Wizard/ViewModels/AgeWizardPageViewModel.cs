@@ -35,4 +35,40 @@ public class AgeWizardPageViewModel : WizardPageViewModelBase<AgeWizardPage>
 
         Wizard.InsertPage<AgeWizardPage>(WizardPage.Number);
     }
+
+    /// <summary>
+    /// 从上一步骤获取的数据
+    /// </summary>
+    public ISummaryItem PersonSummary { get; private set; }
+
+    protected override async Task InitializeAsync()
+    {
+        await base.InitializeAsync();
+
+        var wizard = Wizard;
+        if (wizard is null)
+        {
+            return;
+        }
+
+        foreach (var page in wizard.Pages)
+        {
+            // Skip pages that were not visited
+            if (!page.IsVisited) continue;
+
+            var summary = page.GetSummary();
+            if (summary is null) continue;
+
+            if (summary.Page is null)
+            {
+                summary.Page = page;
+            }
+
+            if (summary.Title == "Person")
+            {
+                PersonSummary = summary;
+                break;
+            }
+        }
+    }
 }

@@ -57,6 +57,12 @@ public class ExampleSideNavigationWizard : SideNavigationWizardBase, IExampleWiz
         set { IsHelpVisible = value; }
     }
 
+    public bool ShowPageHeaderWrapper
+    {
+        get { return IsPageHeaderVisible; }
+        set { IsPageHeaderVisible = value; }
+    }
+
     public bool AllowQuickNavigationWrapper
     {
         get { return AllowQuickNavigation; }
