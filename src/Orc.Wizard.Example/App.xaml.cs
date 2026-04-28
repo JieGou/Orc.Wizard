@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows;
 using Catel;
+using Catel.Configuration;
 using Catel.IoC;
 using Catel.MVVM;
 using Catel.Services;
@@ -63,11 +64,14 @@ public partial class App : Application
         IoCContainer.ServiceProvider = _host.Services;
     }
 
-    protected override void OnStartup(StartupEventArgs e)
+    protected override async void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
 
         var serviceProvider = IoCContainer.ServiceProvider;
+
+        var configurationService = serviceProvider.GetRequiredService<IConfigurationService>();
+        await configurationService.LoadAsync();
 
         serviceProvider.CreateTypesThatMustBeConstructedAtStartup();
 
