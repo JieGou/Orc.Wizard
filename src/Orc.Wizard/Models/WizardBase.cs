@@ -131,6 +131,8 @@ public abstract class WizardBase : ModelBase, IWizard
         get { return true; }
     }
 
+    public bool IsCanceling { get; private set; }
+
     public virtual bool CanMoveForward
     {
         get
@@ -417,6 +419,8 @@ public abstract class WizardBase : ModelBase, IWizard
         {
             return;
         }
+
+        IsCanceling = true;
 
         Logger.LogDebug("Canceling wizard '{WizardType}'", GetType().GetSafeFullName());
 
