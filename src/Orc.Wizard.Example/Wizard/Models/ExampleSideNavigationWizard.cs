@@ -94,10 +94,10 @@ public class ExampleSideNavigationWizard : SideNavigationWizardBase, IExampleWiz
         return _messageService.ShowAsync("HELP HANDLER");
     }
 
-    public override async Task ResumeAsync()
+    public override Task<bool> ResumeAsync()
     {
         Logger.LogInformation("Resuming wizard");
 
-        await base.ResumeAsync();
+        return base.ResumeAsync();
     }       
 }
