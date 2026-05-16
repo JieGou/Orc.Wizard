@@ -1,4 +1,4 @@
-﻿namespace Orc.Wizard.Example;
+namespace Orc.Wizard.Example;
 
 using System;
 using System.Globalization;
@@ -46,6 +46,7 @@ public partial class App : Application
                 services.AddOrcTheming();
                 services.AddOrcWizard();
                 services.AddOrchestraCore();
+                services.AddSingleton<ILanguageSource>(new LanguageResourceSource("Orc.Wizard.Example", "Orc.Wizard.Example.Properties", "Resources"));
 
                 services.AddLogging(x =>
                 {
