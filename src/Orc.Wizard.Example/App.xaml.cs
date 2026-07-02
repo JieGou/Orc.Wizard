@@ -102,6 +102,7 @@ public partial class App : Application
         wizard.HandleNavigationStatesWrapper = true;
         wizard.CacheViewsWrapper = true;
         wizard.ShowPageHeaderWrapper = true;
+        wizard.ShowInTaskbarWrapper = true;
 
         var wizardService = serviceProvider.GetRequiredService<IWizardService>();
         await wizardService.ShowWizardAsync(wizard);
