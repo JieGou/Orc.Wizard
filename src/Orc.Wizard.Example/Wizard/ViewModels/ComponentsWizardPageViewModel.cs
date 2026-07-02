@@ -98,7 +98,8 @@ public class ComponentsWizardPageViewModel : WizardPageViewModelBase<ComponentsW
         var components = Components;
         if (components is not null)
         {
-            if (!components.Any(x => x.IsSelected))
+            // Only require selection if the page is not optional
+            if (!WizardPage.IsOptional && !components.Any(x => x.IsSelected))
             {
                 validationResults.Add(BusinessRuleValidationResult.CreateError(
                     _languageService.GetRequiredString("Orc_Wizard_Example_ComponentsWizardPageViewModel_SelectAtLeast1Component")));

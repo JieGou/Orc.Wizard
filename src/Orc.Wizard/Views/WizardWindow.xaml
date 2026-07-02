@@ -160,6 +160,9 @@
             Margin="4,4,4,4"
             HorizontalScrollBarVisibility="{Binding Wizard.HorizontalScrollbarVisibility}"
             VerticalScrollBarVisibility="{Binding Wizard.VerticalScrollbarVisibility}">
+            <xamlbehaviors:Interaction.Behaviors>
+                <wizard:ScrollViewerMouseWheelBehavior />
+            </xamlbehaviors:Interaction.Behaviors>
             <ContentControl Focusable="False">
                 <xamlbehaviors:Interaction.Behaviors>
                     <wizard:WizardPageSelectionBehavior Wizard="{Binding Wizard}" />

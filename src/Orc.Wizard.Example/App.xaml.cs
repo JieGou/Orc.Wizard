@@ -21,7 +21,9 @@ using Orc.SystemInfo;
 using Orc.Theming;
 using Orc.Wizard.Example.ViewModels;
 using Orc.Wizard.Example.Views;
+using Orc.Wizard.Example.Wizard;
 using Orchestra;
+using Orchestra.Theming;
 
 /// <summary>
 /// Interaction logic for App.xaml
@@ -90,8 +92,23 @@ public partial class App : Application
 
         this.ApplyTheme();
 
+#if DEBUG
+        // 必须在打开任何使用 Orc.Theming 资源的窗口之前调用
+        var themeManager = serviceProvider.GetRequiredService<IThemeManager>();
+        themeManager?.SynchronizeTheme();
+
+        var wizard = ActivatorUtilities.CreateInstance<ExampleWizard>(_host.Services);
+        wizard.AllowQuickNavigationWrapper = true;
+        wizard.HandleNavigationStatesWrapper = true;
+        wizard.CacheViewsWrapper = true;
+        wizard.ShowPageHeaderWrapper = true;
+
+        var wizardService = serviceProvider.GetRequiredService<IWizardService>();
+        await wizardService.ShowWizardAsync(wizard);
+#else
         var mainWindow = ActivatorUtilities.CreateInstance<MainView>(_host.Services);
         mainWindow.Show();
+#endif
     }
 
     protected override async void OnExit(ExitEventArgs e)
