@@ -6,7 +6,7 @@
     xmlns:controls="clr-namespace:Orc.Wizard.Controls"
     xmlns:wizard="clr-namespace:Orc.Wizard"
     xmlns:xamlbehaviors="http://schemas.microsoft.com/xaml/behaviors"
-    x:Name="wizardWindow"
+    
     MinWidth="{Binding MinSize.Width, Mode=OneWay}"
     MinHeight="{Binding MinSize.Height, Mode=OneWay}"
     MaxWidth="{Binding MaxSize.Width, Mode=OneWay}"
