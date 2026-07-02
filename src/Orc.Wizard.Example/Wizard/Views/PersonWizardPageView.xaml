@@ -30,10 +30,14 @@
         </Label>
 
         <Label Content="{catel:LanguageBinding Orc_Wizard_Example_PersonWizardPageView_FirstName}" />
-        <TextBox Text="{Binding FirstName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" />
+        <TextBox Text="{Binding FirstName, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}">
+            <xamlbehaviors:Interaction.Behaviors>
+                <catel:UpdateBindingOnTextChanged UpdateDelay="500" />
+            </xamlbehaviors:Interaction.Behaviors>
+        </TextBox>
 
         <Label Content="{catel:LanguageBinding Orc_Wizard_Example_PersonWizardPageView_LastName}" />
-        <TextBox Text="{Binding LastName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" />
+        <TextBox Text="{Binding LastName, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" />
     </orccontrols:StackGrid>
 
 </catel:UserControl>

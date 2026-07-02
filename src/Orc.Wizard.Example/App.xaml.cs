@@ -1,4 +1,4 @@
-namespace Orc.Wizard.Example;
+﻿namespace Orc.Wizard.Example;
 
 using System;
 using System.Globalization;
@@ -8,6 +8,7 @@ using Catel;
 using Catel.Configuration;
 using Catel.IoC;
 using Catel.MVVM;
+using Catel.Reflection;
 using Catel.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
